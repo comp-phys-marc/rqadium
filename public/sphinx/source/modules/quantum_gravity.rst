@@ -1,0 +1,208 @@
+.. role:: past
+
+=============================
+How We Solved Quantum Gravity
+=============================
+
+Quantum gravity has been one of the most difficult problems for physicists, up until *very recently*
+:cite:`WolframAnnouncement`. This is the story from my perspective of how this discovery was made and shared in 2019 and
+2020 by several scientists (including myself), who were working independently of one another.
+
+I am *thrilled* to see the work being validated and repeated by others like Dr. Wolfram who, admittedly, have done much
+more extensive and impressive work than I. I'm *very excited* to see how the world will continue to expand on this work
+in the collaborative and open framework being created by Wolfram Research in the coming years!
+
+****************
+My Goals in 2018
+****************
+
+I began my graduate studies in 2018 with very lofty goals and set out to do the following:
+
+1.   Resolve the quantum mechanics interpretations
+2.   Provide the missing piece for a true theory of consciousness
+3.   Solve the AI control problem
+4.   Provide a protocol for control
+5.   Provide a strategy for bridging m-theory and our reality by introducing a higher conscious agent
+6.   Justify quantum darwinism
+7.   Justify the efficient simulation of quantum systems
+8.   Design a graph characterization approach to identifying consciousness
+9.   Develop a quantum algorithm for *fast* consciousness classification
+10.  Thereby derive a functional quantum definition of consciousness
+11.  Provide a technical roadmap for a *feasible* implementation of quantum conscious agents
+
+I was strongly discouraged from trying to tackle all of this in a Masters degree. I eventually found myself switching \
+into a PhD fast-track, but was still encouraged to leave the AI and consciousness related work "on the back-burner."
+
+I settled at first with a quantum emulation project. The goal of this project was to *emulate* the behaviour of quantum
+systems, specifically quantum harmonic oscillators, using commonplace electrical components. Still, this sub-project
+combined control theory, machine learning, quantum mechanics, electrical engineering, software engineering,
+and microchip design. It was enough to scare off almost every professor I spoke to at the university, and it looked like
+I wasn't going to be able to put a committee together around it.
+
+These are some of the things I heard as I pitched the project to the members of the Institute for Quantum Computing,
+as well as the Physics and Engineering departments at the university:
+
+.. code-block::
+
+    "I don't think you should apply machine learning to everything."
+    -- A researcher and professor of engineering
+
+    "I can't read a single page of electrical engineering."
+    -- A researcher and professor of quantum physics
+
+    "I don't know enough about quantum mechanics."
+    -- A researcher and professor of engineering
+
+    "What you need is a mathematician."
+    -- A researcher and professor of quantum physics
+
+I was fortunate by this point to have a number of connections with inventors and entrepreneurs in the industry, who were
+more open to some of my ideas. I pitched the initial emulation idea to a few industry mentors and past collaborators.
+
+.. code-block::
+
+    "If you think you can handle the broad interdisciplinary nature of it, go for it!"
+    -- A seasoned serial entrepreneur
+
+    "Be careful you don't give the ideas away. When you go into business, I would like to be a founder."
+    -- A seasoned entrepreneur and inventor
+
+Encouraged at least by some of the feedback from my friends in the industry, my supervisor and I decided the project was
+worth looking into. I was absolutely pumped. The committee, we thought, would come later.
+
+I started out by trying to combine two topics I loved: quantum information theory and analog control theory. I also had
+the chance to satiate my obsession with logistic maps by building a recursively evaluated logistic map into the analog
+circuitry. And so, I began in earnest in September 2018.
+
+******************************
+The Analog Electrical Emulator
+******************************
+
+Below I include writing from my work on the analog electrical emulator from 2018 - 2019, interspersed with retrospective
+comments.
+
+|
+
+:past:`At the core of any quantum simulation or emulation is the idea of mapping quantum information to classical information.
+At its simplest, we need each modellable quantum state to be mapped to some classical state of our classical simulation
+device. Let` :math:`a \mathbb{\epsilon} \mathbb{Z}` :past:`be an integer variable. It will be the goal for this value to be
+"observable", meaning that it can be measured or determined with minimal calculation and minimal deduction. This variable`
+:math:`a` :past:`will be used to give each individual modellable quantum state an observable identification number.`
+
+:past:`Consider a system with practical boundaries on the magnitude of its possible states. Let any state of the system in
+question initially be assumed to be expressible using continuous variables, and modelleable by analog signals. We know
+that a system matching this description is possible to engineer. As La Cour and Ott demonstrated experimentally in their
+paper published in 2015` :cite:`Cour2015SignalbasedCE` :past:`, it is possible to implement a signal-based emulation of a universal qubit quantum computer.
+However, they did not provide a scalable or practically useful scheme because of the evolution of the system's more complex
+states in time. To produce 95 bits would require a calculation duration of roughly the age of the universe using their scheme.
+So, let us assert that a viable solution must have a dependence on time that scales linearly with the complexity of the
+operation. This will encourage improvement upon the design proposed by La Cour and Ott.`
+
+:past:`Finally, a viable solution must not require the amount of hardware components or digital computing resources to scale
+exponentially with the amount of modelled quantum information.`
+
+|
+
+I was inspired by a signal-based emulation that was demonstrated in 2015 :cite:`Cour2015SignalbasedCE`, which I had
+`reviewed <https://mackedweise.github.io/qemu.pdf>`_ as a class project in undergrad.
+
+|
+
+:past:`In 2015, La Cour and Ott` :cite:`Cour2015SignalbasedCE` :past:`described an implementation scheme for a signal
+based emulation of general quantum computing. This model was demonstrated using analog electronics. Their scheme
+introduced a mapping from quantum states to electrical analog phase representations.`
+
+:past:`The model starts with representing the quantum state` :math:`|0>` :past:`by the in-phase and quadrature
+components of an analog electrical signal. The` :math:`|0>` :past:`state is defined as` :math:`s(t)`:
+
+|
+
+.. math::
+
+    s(t) = a \cdot cos(\omega_ct) - b \cdot sin(\omega_ct) = Re[\alpha e^{i\omega_ct} ]
+
+|
+
+:past:`This state can be represented by a sinusoidal analog electronic signal` :math:`\alpha` :past:`. `:math:`a`
+:past:`then represents the real part of the sinusoidal signal and` :math:`b` :past:`the imaginary part. The in-phase and
+quadrature amplitudes can be obtained by multiplying the state by in-phase and quadrature reference signals and applying
+a low-pass filter with a bandpass below` :math:`2\omega_c`:past:`.`
+
+:past:`This can also be extended to model a general single qubit state,` :math:`s(t) = Re[\psi(t)e ]` :past:`.
+Let` :math:`\psi(t) = \psi_R(t) + i\psi_I(t) = \alpha_0e^{i \omega t} + \alpha_1e^{-i \omega t}` :past:`, a combination
+of the basis states` :math:`|0>` :past:`and` :math:`|1>` :past:`.`
+
+:past:`Then we can redefine` :math:`s(t)` :past:`:`
+
+|
+
+.. math::
+
+    s(t) = \psi_R (t) \cdot cos(\omega_c t) + \psi_I (t) sin(\omega_c t)
+
+|
+
+:past:`This achieves a way by which a general state` :math:`|\psi> = \psi (t) = \alpha` :past:`can be modelled. The real
+and imaginary parts of $\psi$ serve as the in-phase and quadrature components of the carrier signal. In-phase and quadrature
+references are used in the following configuration, where` :math:`\otimes` :past:`represents a 4 quadrant multiplier. A
+4 quadrant multiplier circuit produces the product of its input voltages and either input voltage may be positive or
+negative. The` :math:`- \frac{\pi}{2}` :past:`phase shift provides the quadrature reference, and a positive analog filter
+is used to finally acquire the state` :math:`s(t)` :past:`.`
+
+|
+
+.. image:: ../_static/analog_psi.png
+  :width: 250
+  :alt: Analog Quantum State
+  :align: center
+
+|
+
+:past:`Then the analog components required to represent a quantum state are:`
+
+:past:`2 analog sources`
+:past:`2 quadrature multiplier circuits`
+:past:`1 phase shift circuit`
+:past:`1 bandpass filter`
+
+:past:`Similarly, n qubits with n complex coefficients can be expressed in general using the formula:`
+
+|
+
+.. math::
+
+    \psi(t) = \sum_{x=0}^{2^n-1} a_x \phi_x (t)
+
+|
+
+
+:past:`To represent such a state,` :math:`n + 1` :past:`frequencies are required; one frequency for each qubit as well
+as the carrier frequency` :math:`w_c` :past:`. Such an ensemble of states can be created using an octave spacing scheme,
+with` :math:`n` :past:`frequencies for the qubits, 2 frequencies for the basis states, and one for the carrier.`
+
+:past:`Since a quantum state of $n$ qubits is represented using a complex oscillating time-domain signal, the number of qubits
+that can be encoded is limited by the attainable bandwidth. Another limitation to consider is the requirements for physical
+components. The proposed device consists of only three types of electrical components: 4 quadrant multipliers, operational
+amplifiers and analog filters. A gate uses a fixed number of multipliers, adders and inverters per qubit. La Cour and Ott claim that the total
+number of components needed for the implementation of a gate scales quadratically with the number of qubits the gate
+operates on. La Cour and Ott estimate that in order to achieve a density of electrical circuitry footprint
+that scales exponentially with the number of qubits, transistor density would need to improve by
+a factor of 1000 from what it is today. If this goal were reached, and encoding information with a 1 THz
+bandwidth were possible, they claim it would then be feasible to emulate a system of 40 qubits, which is comparable to a
+modern high performance computer with 1 TB of RAM.`
+
+:past:`Due to the bandwidth limitation, the inefficiencies of this implementation largely exist in the time domain. The time
+dependence of a state introduces a relationship between the signal duration` :math:`T` :past:`and number of modellable qubits` :math:`n` :past:`.
+A signal duration of 10 hours would yield roughly 50 qubits, while 1 year would yield roughly 60 qubits. Even if` :math:`T` :past:`were
+on the order of the age of the Universe only about 95 qubits could be represented.
+
+La Cour and Ott conclude that a quantum emulation device with an octave spacing of qubit frequencies would be constrained
+by an exponential scaling of required bandwidth. So, this signal based emulation methodology also scales with untenable complexity.`
+
+|
+
+***********
+References
+***********
+
+.. bibliography:: references.bib

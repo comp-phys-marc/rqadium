@@ -1,0 +1,12 @@
+@import '../../_static/css/insegel.css';
+
+.past, .math {
+    color: #797979;
+    font-size: smaller;
+    font-style: italic;
+}
+
+.bibtex {
+    color: dodgerblue;
+    font-size: smaller;
+}

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2D2D2D" />
+  
+  <title>Marcus Edwards' :: How We Solved Quantum Gravity</title>
+  
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../_static/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../_static/img/favicon-16x16.png">
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+
+  <link rel="stylesheet" href="../_static/custom.css"/>
+
+  <script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'',
+        VERSION:'0.1.0',
+        LANGUAGE:'English',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+    };
+  </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  <script src="https://email.tl.fortawesome.com/c/eJxNjUEOgyAQAF8jR7Kw6wIHDh7sP1Cw2mgxgmn6-3JsMqc5zEQfE8dkxOY1KKMUOI3ACFKRJpSW2AAp7ontYIaxI6i7XPJVwyeVfCQ550Os3jLrGSNOLgbdAy6s0PBk2TFNjEbsfq31LB0OnX407pJa5v2faRadwSW63mn5KuLyR9j2tgx3zecanl-55R_-jjPs"></script>
+
+</head>
+
+<body>
+  <div id="insegel-container">
+    <header>
+      <div id="logo-container">
+          
+          <a href="../index.html"><img src="../_static/img/logo.svg"></a>
+          
+
+      </div>
+      <div id="project-container">
+        <h1>Marcus Edwards' Documentation</h1>
+      </div>
+    </header>
+
+    <div id="content-container">
+
+      <div id="main-content-container">
+        <div id="main-content-header">
+          <h1>How We Solved Quantum Gravity</h1>
+        </div>
+        <div id="main-content">
+          
+  <div class="section" id="how-we-solved-quantum-gravity">
+<h1>How We Solved Quantum Gravity<a class="headerlink" href="#how-we-solved-quantum-gravity" title="Permalink to this headline">¶</a></h1>
+<p>Quantum gravity has been one of the most difficult problems for physicists, up until <em>very recently</em>
+<a class="bibtex reference internal" href="#wolframannouncement" id="id1">[Wol]</a>. This is the story from my perspective of how this discovery was made and shared in 2019 and
+2020 by several scientists (including myself), who were working independently of one another.</p>
+<p>I am <em>thrilled</em> to see the work being validated and repeated by others like Dr. Wolfram who, admittedly, have done much
+more extensive and impressive work than I. I'm <em>very excited</em> to see how the world will continue to expand on this work
+in the collaborative and open framework being created by Wolfram Research in the coming years!</p>
+<div class="section" id="my-goals-in-2018">
+<h2>My Goals in 2018<a class="headerlink" href="#my-goals-in-2018" title="Permalink to this headline">¶</a></h2>
+<p>I began my graduate studies in 2018 with very lofty goals and set out to do the following:</p>
+<ol class="arabic simple">
+<li><p>Resolve the quantum mechanics interpretations</p></li>
+<li><p>Provide the missing piece for a true theory of consciousness</p></li>
+<li><p>Solve the AI control problem</p></li>
+<li><p>Provide a protocol for control</p></li>
+<li><p>Provide a strategy for bridging m-theory and our reality by introducing a higher conscious agent</p></li>
+<li><p>Justify quantum darwinism</p></li>
+<li><p>Justify the efficient simulation of quantum systems</p></li>
+<li><p>Design a graph characterization approach to identifying consciousness</p></li>
+<li><p>Develop a quantum algorithm for <em>fast</em> consciousness classification</p></li>
+<li><p>Thereby derive a functional quantum definition of consciousness</p></li>
+<li><p>Provide a technical roadmap for a <em>feasible</em> implementation of quantum conscious agents</p></li>
+</ol>
+<p>I was strongly discouraged from trying to tackle all of this in a Masters degree. I eventually found myself switching into a PhD fast-track, but was still encouraged to leave the AI and consciousness related work &quot;on the back-burner.&quot;</p>
+<p>I settled at first with a quantum emulation project. The goal of this project was to <em>emulate</em> the behaviour of quantum
+systems, specifically quantum harmonic oscillators, using commonplace electrical components. Still, this sub-project
+combined control theory, machine learning, quantum mechanics, electrical engineering, software engineering,
+and microchip design. It was enough to scare off almost every professor I spoke to at the university, and it looked like
+I wasn't going to be able to put a committee together around it.</p>
+<p>These are some of the things I heard as I pitched the project to the members of the Institute for Quantum Computing,
+as well as the Physics and Engineering departments at the university:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;I don&#39;t think you should apply machine learning to everything.&quot;</span>
+<span class="o">--</span> <span class="n">A</span> <span class="n">researcher</span> <span class="ow">and</span> <span class="n">professor</span> <span class="n">of</span> <span class="n">engineering</span>
+
+<span class="s2">&quot;I can&#39;t read a single page of electrical engineering.&quot;</span>
+<span class="o">--</span> <span class="n">A</span> <span class="n">researcher</span> <span class="ow">and</span> <span class="n">professor</span> <span class="n">of</span> <span class="n">quantum</span> <span class="n">physics</span>
+
+<span class="s2">&quot;I don&#39;t know enough about quantum mechanics.&quot;</span>
+<span class="o">--</span> <span class="n">A</span> <span class="n">researcher</span> <span class="ow">and</span> <span class="n">professor</span> <span class="n">of</span> <span class="n">engineering</span>
+
+<span class="s2">&quot;What you need is a mathematician.&quot;</span>
+<span class="o">--</span> <span class="n">A</span> <span class="n">researcher</span> <span class="ow">and</span> <span class="n">professor</span> <span class="n">of</span> <span class="n">quantum</span> <span class="n">physics</span>
+</pre></div>
+</div>
+<p>I was fortunate by this point to have a number of connections with inventors and entrepreneurs in the industry, who were
+more open to some of my ideas. I pitched the initial emulation idea to a few industry mentors and past collaborators.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;If you think you can handle the broad interdisciplinary nature of it, go for it!&quot;</span>
+<span class="o">--</span> <span class="n">A</span> <span class="n">seasoned</span> <span class="n">serial</span> <span class="n">entrepreneur</span>
+
+<span class="s2">&quot;Be careful you don&#39;t give the ideas away. When you go into business, I would like to be a founder.&quot;</span>
+<span class="o">--</span> <span class="n">A</span> <span class="n">seasoned</span> <span class="n">entrepreneur</span> <span class="ow">and</span> <span class="n">inventor</span>
+</pre></div>
+</div>
+<p>Encouraged at least by some of the feedback from my friends in the industry, my supervisor and I decided the project was
+worth looking into. I was absolutely pumped. The committee, we thought, would come later.</p>
+<p>I started out by trying to combine two topics I loved: quantum information theory and analog control theory. I also had
+the chance to satiate my obsession with logistic maps by building a recursively evaluated logistic map into the analog
+circuitry. And so, I began in earnest in September 2018.</p>
+</div>
+<div class="section" id="the-analog-electrical-emulator">
+<h2>The Analog Electrical Emulator<a class="headerlink" href="#the-analog-electrical-emulator" title="Permalink to this headline">¶</a></h2>
+<p>Below I include writing from my work on the analog electrical emulator from 2018 - 2019, interspersed with retrospective
+comments.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><span class="past">At the core of any quantum simulation or emulation is the idea of mapping quantum information to classical information.
+At its simplest, we need each modellable quantum state to be mapped to some classical state of our classical simulation
+device. Let</span> <span class="math notranslate nohighlight">\(a \mathbb{\epsilon} \mathbb{Z}\)</span> <span class="past">be an integer variable. It will be the goal for this value to be
+&quot;observable&quot;, meaning that it can be measured or determined with minimal calculation and minimal deduction. This variable</span>
+<span class="math notranslate nohighlight">\(a\)</span> <span class="past">will be used to give each individual modellable quantum state an observable identification number.</span></p>
+<p><span class="past">Consider a system with practical boundaries on the magnitude of its possible states. Let any state of the system in
+question initially be assumed to be expressible using continuous variables, and modelleable by analog signals. We know
+that a system matching this description is possible to engineer. As La Cour and Ott demonstrated experimentally in their
+paper published in 2015</span> <a class="bibtex reference internal" href="#cour2015signalbasedce" id="id2">[CO15]</a> <span class="past">, it is possible to implement a signal-based emulation of a universal qubit quantum computer.
+However, they did not provide a scalable or practically useful scheme because of the evolution of the system's more complex
+states in time. To produce 95 bits would require a calculation duration of roughly the age of the universe using their scheme.
+So, let us assert that a viable solution must have a dependence on time that scales linearly with the complexity of the
+operation. This will encourage improvement upon the design proposed by La Cour and Ott.</span></p>
+<p><span class="past">Finally, a viable solution must not require the amount of hardware components or digital computing resources to scale
+exponentially with the amount of modelled quantum information.</span></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>I was inspired by a signal-based emulation that was demonstrated in 2015 <a class="bibtex reference internal" href="#cour2015signalbasedce" id="id3">[CO15]</a>, which I had
+<a class="reference external" href="https://mackedweise.github.io/qemu.pdf">reviewed</a> as a class project in undergrad.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><span class="past">In 2015, La Cour and Ott</span> <a class="bibtex reference internal" href="#cour2015signalbasedce" id="id4">[CO15]</a> <span class="past">described an implementation scheme for a signal
+based emulation of general quantum computing. This model was demonstrated using analog electronics. Their scheme
+introduced a mapping from quantum states to electrical analog phase representations.</span></p>
+<p><span class="past">The model starts with representing the quantum state</span> <span class="math notranslate nohighlight">\(|0&gt;\)</span> <span class="past">by the in-phase and quadrature
+components of an analog electrical signal. The</span> <span class="math notranslate nohighlight">\(|0&gt;\)</span> <span class="past">state is defined as</span> <span class="math notranslate nohighlight">\(s(t)\)</span>:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="math notranslate nohighlight">
+\[s(t) = a \cdot cos(\omega_ct) - b \cdot sin(\omega_ct) = Re[\alpha e^{i\omega_ct} ]\]</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><span class="past">This state can be represented by a sinusoidal analog electronic signal</span> <span class="math notranslate nohighlight">\(\alpha\)</span> <span class="past">. `:math:`a</span>
+<span class="past">then represents the real part of the sinusoidal signal and</span> <span class="math notranslate nohighlight">\(b\)</span> <span class="past">the imaginary part. The in-phase and
+quadrature amplitudes can be obtained by multiplying the state by in-phase and quadrature reference signals and applying
+a low-pass filter with a bandpass below</span> <span class="math notranslate nohighlight">\(2\omega_c\)</span><span class="past">.</span></p>
+<p><span class="past">This can also be extended to model a general single qubit state,</span> <span class="math notranslate nohighlight">\(s(t) = Re[\psi(t)e ]\)</span> <span class="past">.
+Let</span> <span class="math notranslate nohighlight">\(\psi(t) = \psi_R(t) + i\psi_I(t) = \alpha_0e^{i \omega t} + \alpha_1e^{-i \omega t}\)</span> <span class="past">, a combination
+of the basis states</span> <span class="math notranslate nohighlight">\(|0&gt;\)</span> <span class="past">and</span> <span class="math notranslate nohighlight">\(|1&gt;\)</span> <span class="past">.</span></p>
+<p><span class="past">Then we can redefine</span> <span class="math notranslate nohighlight">\(s(t)\)</span> <span class="past">:</span></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="math notranslate nohighlight">
+\[s(t) = \psi_R (t) \cdot cos(\omega_c t) + \psi_I (t) sin(\omega_c t)\]</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><span class="past">This achieves a way by which a general state</span> <span class="math notranslate nohighlight">\(|\psi&gt; = \psi (t) = \alpha\)</span> <span class="past">can be modelled. The real
+and imaginary parts of $psi$ serve as the in-phase and quadrature components of the carrier signal. In-phase and quadrature
+references are used in the following configuration, where</span> <span class="math notranslate nohighlight">\(\otimes\)</span> <span class="past">represents a 4 quadrant multiplier. A
+4 quadrant multiplier circuit produces the product of its input voltages and either input voltage may be positive or
+negative. The</span> <span class="math notranslate nohighlight">\(- \frac{\pi}{2}\)</span> <span class="past">phase shift provides the quadrature reference, and a positive analog filter
+is used to finally acquire the state</span> <span class="math notranslate nohighlight">\(s(t)\)</span> <span class="past">.</span></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<a class="reference internal image-reference" href="../_images/analog_psi.png"><img alt="Analog Quantum State" class="align-center" src="../_images/analog_psi.png" style="width: 250px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>:past:<a href="#id5"><span class="problematic" id="id6">`</span></a>Then the analog components required to represent a quantum state are:</p>
+<ul class="simple">
+<li><p>2 analog sources</p></li>
+<li><p>2 quadrature multiplier circuits</p></li>
+<li><p>1 phase shift circuit</p></li>
+<li><p>1 bandpass filter`</p></li>
+</ul>
+<p><span class="past">Similarly, n qubits with n complex coefficients can be expressed in general using the formula:</span></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\psi(t) = \sum_{x=0}^{2^n-1} a_x \phi_x (t)\]</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><span class="past">To represent such a state,</span> <span class="math notranslate nohighlight">\(n + 1\)</span> <span class="past">frequencies are required; one frequency for each qubit as well
+as the carrier frequency</span> <span class="math notranslate nohighlight">\(w_c\)</span> <span class="past">. Such an ensemble of states can be created using an octave spacing scheme,
+with</span> <span class="math notranslate nohighlight">\(n\)</span> <span class="past">frequencies for the qubits, 2 frequencies for the basis states, and one for the carrier.</span></p>
+<p><span class="past">Since a quantum state of $n$ qubits is represented using a complex oscillating time-domain signal, the number of qubits
+that can be encoded is limited by the attainable bandwidth. Another limitation to consider is the requirements for physical
+components. The proposed device consists of only three types of electrical components: 4 quadrant multipliers, operational
+amplifiers and analog filters. A gate uses a fixed number of multipliers, adders and inverters per qubit. La Cour and Ott claim that the total
+number of components needed for the implementation of a gate scales quadratically with the number of qubits the gate
+operates on. La Cour and Ott estimate that in order to achieve a density of electrical circuitry footprint
+that scales exponentially with the number of qubits, transistor density would need to improve by
+a factor of 1000 from what it is today. If this goal were reached, and encoding information with a 1 THz
+bandwidth were possible, they claim it would then be feasible to emulate a system of 40 qubits, which is comparable to a
+modern high performance computer with 1 TB of RAM.</span></p>
+<p><span class="past">Due to the bandwidth limitation, the inefficiencies of this implementation largely exist in the time domain. The time
+dependence of a state introduces a relationship between the signal duration</span> <span class="math notranslate nohighlight">\(T\)</span> <span class="past">and number of modellable qubits</span> <span class="math notranslate nohighlight">\(n\)</span> <span class="past">.
+A signal duration of 10 hours would yield roughly 50 qubits, while 1 year would yield roughly 60 qubits. Even if</span> <span class="math notranslate nohighlight">\(T\)</span> :past:<a href="#id7"><span class="problematic" id="id8">`</span></a>were
+on the order of the age of the Universe only about 95 qubits could be represented.</p>
+<p>La Cour and Ott conclude that a quantum emulation device with an octave spacing of qubit frequencies would be constrained
+by an exponential scaling of required bandwidth. So, this signal based emulation methodology also scales with untenable complexity.`</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-modules/quantum_gravity-0"><dl class="citation">
+<dt class="bibtex label" id="wolframannouncement"><span class="brackets"><a class="fn-backref" href="#id1">Wol</a></span></dt>
+<dd><p>Finally we may have a path to the fundamental theory of physics... and it's beautiful-stephen wolfram writings. URL: <a class="reference external" href="https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/">https://writings.stephenwolfram.com/2020/04/finally-we-may-have-a-path-to-the-fundamental-theory-of-physics-and-its-beautiful/</a>.</p>
+</dd>
+<dt class="bibtex label" id="cour2015signalbasedce"><span class="brackets">CO15</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>,<a href="#id4">3</a>)</span></dt>
+<dd><p>Brian R. La Cour and Gustavo Ott. Signal-based classical emulation of a universal quantum computer. 2015.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+
+        </div>
+      </div>
+
+      <div id="side-menu-container">
+
+        <div id="search" role="search">
+        <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+            <input type="text" name="q" placeholder="Search..." />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+        </form>
+</div>
+
+        <div id="side-menu" role="navigation">
+
+          
+  
+    
+  
+  
+    <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="origin_story.html">Origin Story</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How We Solved Quantum Gravity</a></li>
+</ul>
+
+  
+
+
+        </div>
+
+        
+
+      </div>
+
+    </div>
+
+<footer>
+    <div id="footer-info">
+        <ul id="build-details">
+            
+                <li class="footer-element">
+                    
+                        <a href="../_sources/modules/quantum_gravity.rst.txt" rel="nofollow"> source</a>
+                    
+                </li>
+            
+
+            
+
+            
+        </ul>
+
+        
+            <div id="copyright">
+                &copy; 2020, Marcus Edwards
+            </div>
+        
+
+        <div id="credit">
+            created with <a href="http://sphinx-doc.org/">Sphinx</a> and <a href="https://github.com/Autophagy/insegel">Insegel</a>
+
+        </div>
+    </div>
+
+    <a id="menu-toggle" class="fa fa-bars" aria-hidden="true"></a>
+
+    <script type="text/javascript">
+      $("#menu-toggle").click(function() {
+        $("#menu-toggle").toggleClass("toggled");
+        $("#side-menu-container").slideToggle(300);
+      });
+    </script>
+
+</footer> 
+
+</div>
+
+</body>
+</html>
