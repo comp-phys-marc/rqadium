@@ -19,6 +19,17 @@ body {
     } 
 }
 
+sup {
+    display: inline-block;
+    font-size: small;
+    transform: translate(0px,-15px);
+}
+
+small {
+    color: whitesmoke;
+    font-size: 10px;
+}
+
 .icon {
     width: 60px;
     height: 60px;
@@ -31,6 +42,26 @@ body {
     height: 90px;
     margin-right: 10px;
     margin-bottom: 10px;
+}
+
+.icon-rect {
+    mix-blend-mode: multiply;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 200px;
+    object-fit: cover;
+}
+
+.open-source-intro {
+    margin-left: 25px;
+}
+
+.open-source {
+    font-size: smaller;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
 }
 
 .top {
