@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "Marcus Edwards'"
+project = "rQadium"
 copyright = '2020, Marcus Edwards'
 author = 'Marcus Edwards'
 
