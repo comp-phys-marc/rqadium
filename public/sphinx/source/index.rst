@@ -11,5 +11,5 @@ rQadium
    :maxdepth: 2
    :caption: Contents:
 
-   .. modules/origin_story
-   .. modules/quantum_gravity
+   modules/signifiers
+
